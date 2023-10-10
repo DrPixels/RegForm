@@ -1,0 +1,432 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-container {
+  width: 600px;
+
+  border: solid 1px;
+  margin: 0 auto;
+
+  background-color: white;
+  border-radius: 20px;
+
+  box-shadow: -15px 15px 2px #e3e3e3, 15px -15px 2px #ffffff;
+}
+
+.reset-view-btn-container {
+  display: flex;
+  align-items: center;
+}
+
+.reset-button {
+  background-color: #d9534f;
+  border: solid 1px;
+  border-radius: 5px;
+  padding: 0.75em 1.5em;
+  transition: all 0.15s;
+  cursor: pointer;
+  color: white;
+}
+
+.reset-button:hover {
+  background-color: rgb(235, 70, 64);
+}
+
+.reset-button:active {
+  background-color: #9c5f5f;
+}
+
+.reg-title-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  width: 100%;
+  background-image: linear-gradient(to right, #141e30, #243b55);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 2em 0;
+}
+
+.reg-title {
+  margin-block-start: 0;
+  margin-block-end: 0em;
+  font-weight: bold;
+}
+
+.signupform-mainsections-title {
+  background-color: rgba(195, 202, 216, 0.3);
+  border-radius: 5px;
+  margin-top: 1em;
+}
+
+.signupform-mainsections-title p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding: 1em 0 1em 1em;
+}
+
+.upper-section-subdiv,
+.lower-section-subdiv {
+  padding: 0 1em;
+}
+
+.parent-main-container {
+  padding-left: 1.5em;
+}
+
+form {
+  padding: 0 0 3em 0;
+}
+
+.main-subdiv {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1.5em 3em 1em 3em;
+}
+
+.upper-section-div,
+.lower-section-div {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5em;
+  padding-left: 1em;
+  margin-bottom: 0.3em;
+}
+
+/*Upper Part are all necessary CSS*/
+
+/*Each Input*/
+.input {
+  background-color: transparent;
+  padding: 0.5em;
+  border: solid 1px;
+  border-color: gray;
+  border-radius: 5px;
+  width: 90%;
+  margin-left: 1.3em;
+}
+
+.input:focus {
+  background-color: rgb(241, 237, 237);
+  outline-width: 1px;
+  outline-style: solid;
+  outline-color: rgb(248, 244, 244);
+}
+
+.label-div {
+  display: flex;
+  column-gap: 0.3em;
+}
+
+.input-parts-div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.input-parts-div div:nth-child(1) {
+  margin-bottom: 0.2em;
+}
+
+/*For middle initial div*/
+.middle-initial-div {
+  width: 25%;
+}
+
+.birthdayage-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#birthdate-input {
+  width: 50%;
+}
+
+.ageresult-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.agedisplay {
+  text-align: center;
+  font-weight: bold;
+  width: 25%;
+  font-size: 1.1rem;
+  color: black;
+  padding: 0.2em;
+  border: none;
+  border-bottom: 1px;
+  border-bottom-style: solid;
+  border-block-color: gray;
+}
+
+.agedisplay:focus {
+  outline: none;
+}
+
+.gender-option {
+  padding: 0.5em;
+  width: 80%;
+  margin-left: 1.3em;
+}
+
+.parent-information-input {
+  margin-left: 1em;
+}
+
+.occupation-div {
+  width: 50%;
+}
+
+.term-condi-maindiv {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3em;
+  margin-bottom: 1em;
+}
+
+.term-condi {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  flex-direction: row;
+  column-gap: 5px;
+}
+
+.term-condi p {
+  font-size: 0.9rem;
+}
+
+.checkboxes {
+  cursor: pointer;
+}
+
+.end-div {
+  margin: auto;
+  background-color: rgba(195, 202, 216, 0.3);
+  height: 0.2em;
+  width: 90%;
+}
+
+.create-div {
+  margin: 0.5em auto 0 auto;
+  width: 40%;
+  padding: 0 3em;
+}
+
+.create-div button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1em;
+  width: 100%;
+}
+
+.create-button {
+  padding: 1em 1.5em;
+
+  border: none;
+  border-radius: 5px;
+
+  color: white;
+  cursor: pointer;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(16, 16, 167, 1) 0%,
+    rgba(41, 52, 173, 1) 0%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+.signup-login-div {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 0 1em;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.signup-login-div button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1em;
+  border-radius: 20px;
+}
+
+.signup-login-div button {
+  background-color: #3f2b96;
+}
+
+.signup-login-button {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  padding: 1em 1.5em;
+
+  border: none;
+  border-radius: 5px;
+
+  color: white;
+  cursor: pointer;
+}
+
+.separator {
+  text-align: center;
+  margin: 20px 0; /* Adjust the margin as needed */
+}
+
+.separator span {
+  display: inline-block;
+  padding: 0px 30px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.hide {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  display: none;
+}
+
+/*For Login*/
+.title-login-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5em 0;
+  background-image: linear-gradient(to right, #141e30, #243b55);
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+
+  color: white;
+}
+
+.login-main-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 30em;
+  height: 30em;
+  border: solid 1px;
+  border-radius: 5px;
+  border-top-right-radius: 40px;
+  border-top-left-radius: 40px;
+  border-color: #243b55;
+
+  box-shadow: -11px 11px 23px #c2c2c2, 11px -11px 23px #ffffff;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2em 4em;
+}
+
+.login-user-pass {
+  display: flex;
+  flex-direction: column;
+  padding: 0 2em 0 2em;
+}
+
+.login-forgot-div {
+  display: flex;
+  justify-content: right;
+  font-size: 0.8rem;
+  margin-bottom: 25px;
+  color: rgb(84, 84, 230);
+}
+
+.login-forgot-div p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  cursor: pointer;
+  padding: 0 1.5em 0 0em;
+}
+
+.login-button-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.login-button-div button {
+  padding: 1em 5em;
+  border: none;
+  border-radius: 10px;
+  background-color: #3f2b96;
+  color: white;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.login-button-div button:hover {
+  background-color: #6151a7;
+}
+
+.login-notmember-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+.login-notmember-div span {
+  cursor: pointer;
+  color: rgb(84, 84, 230);
+}
+
+.login-notmember-div span:hover,
+.login-forgot-div p:hover {
+  text-decoration: underline;
+}
+
+.success-create-acc {
+  position: absolute;
+  background-color: #313133;
+  color: white;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20em;
+  height: 10em;
+  border: solid 1px;
+  border-radius: 10px;
+  padding: 2.5em;
+
+  line-height: 1.2rem;
+}
+
+.success-create-acc p {
+  text-align: center;
+}
+
+.login-now-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.success-create-acc button {
+  padding: 1em 3em;
+  border: none;
+  border-radius: 10px;
+  background-color: #3f2b96;
+  color: white;
+  cursor: pointer;
+  margin-top: 2.5em;
+  transition: all 0.15s;
+}
+
+.success-create-acc button:hover {
+  background-color: #6151a7;
+}
