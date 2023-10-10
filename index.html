@@ -5,746 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Account Log In</title>
 
-    <style>
-      * {
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-      }
-
-      .main-container {
-        width: 900px;
-
-        border: solid 1px;
-        margin: 0 auto;
-
-        background-color: white;
-        border-radius: 20px;
-
-        box-shadow: -15px 15px 2px #e3e3e3, 15px -15px 2px #ffffff;
-      }
-
-      .reset-view-btn-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .view-button {
-        background-color: transparent;
-        border: solid 1px;
-        border-color: #5bc0de;
-        border-radius: 5px;
-        padding: 0.75em 1.5em;
-        transition: all 0.15s;
-        cursor: pointer;
-      }
-
-      .reset-button {
-        background-color: #d9534f;
-        border: solid 1px;
-        border-radius: 5px;
-        padding: 0.75em 1.5em;
-        transition: all 0.15s;
-        cursor: pointer;
-        color: white;
-      }
-
-      .reset-button:hover {
-        background-color: rgb(235, 70, 64);
-      }
-
-      .reset-button:active {
-        background-color: #9c5f5f;
-      }
-
-      .view-button:hover {
-        background-color: #5bc0de;
-        border-color: white;
-        color: white;
-      }
-
-      .reg-title-div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        color: white;
-        width: 100%;
-        background-image: linear-gradient(to right, #141e30, #243b55);
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-        padding: 2em 0;
-      }
-
-      .reg-title {
-        margin-block-start: 0;
-        margin-block-end: 0em;
-        font-weight: bold;
-      }
-
-      .signupform-mainsections-title {
-        background-color: rgba(195, 202, 216, 0.3);
-        border-radius: 5px;
-        margin-top: 1em;
-      }
-
-      .signupform-mainsections-title p {
-        margin-block-start: 0;
-        margin-block-end: 0;
-        padding: 1em 0 1em 1em;
-      }
-
-      .upper-section-subdiv,
-      .lower-section-subdiv {
-        padding: 0 1em;
-      }
-
-      .parent-main-container {
-        padding-left: 1.5em;
-      }
-
-      aside {
-        background-color: #545454;
-
-        border-top-left-radius: 20px;
-        border-bottom-left-radius: 20px;
-      }
-
-      form {
-        padding: 0 0 3em 0;
-      }
-
-      .main-subdiv {
-        display: flex;
-        flex-direction: column;
-
-        padding: 3em 3em 1em 3em;
-      }
-
-      .upper-section-div,
-      .lower-section-div {
-        display: flex;
-        flex-direction: column;
-        row-gap: 1.5em;
-        padding-left: 1em;
-        margin-bottom: 0.3em;
-      }
-
-      .password-div,
-      .username-div,
-      .phone-div,
-      .gender-civil-div,
-      .occupation-div {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: 3em;
-        margin-bottom: 30px;
-      }
-
-      .name-div {
-        display: grid;
-        grid-template-columns: 1.5fr 1.5fr 1fr;
-        column-gap: 2em;
-        margin-bottom: 30px;
-      }
-
-      .email-div {
-        margin-bottom: 30px;
-      }
-
-      .birthdate-div {
-        display: grid;
-        grid-template-columns: 1fr 0.5fr 1.5fr;
-        column-gap: 1.5em;
-        margin-bottom: 30px;
-      }
-
-      #birthdate-title {
-        margin-block-start: 0em;
-        margin-block-end: 0em;
-        font-size: 0.9rem;
-        padding-left: 0.5em;
-        margin-right: 2em;
-      }
-
-      .address-div {
-        margin-bottom: 30px;
-      }
-
-      #parent-par {
-        margin-bottom: 2em;
-      }
-
-      .create-div {
-        margin: 0.5em auto 0 auto;
-        width: 40%;
-        padding: 0 3em;
-      }
-
-      .create-div button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        column-gap: 1em;
-      }
-
-      .signup-login-div {
-        display: grid;
-        grid-template-columns: 1fr;
-        padding: 0 1em;
-        width: 40%;
-        margin: 0 auto;
-      }
-
-      .signup-login-div button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        column-gap: 1em;
-        border-radius: 20px;
-      }
-
-      .create-div button {
-        width: 100%;
-      }
-
-      .input-div {
-        display: grid;
-        grid-template-columns: 50px 1fr;
-        align-items: center;
-        column-gap: 1em;
-        border-bottom: solid 1px;
-        border-color: gray;
-        padding-bottom: 0.5em;
-      }
-
-      .birthdate-input-div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        align-items: center;
-        border-bottom: solid 1px;
-        border-color: gray;
-        padding: 0.5em 1em 0.5em 0.5em;
-      }
-
-      .input-age {
-        font-size: 1.1rem;
-        color: black;
-      }
-
-      .age-error-div {
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        column-gap: 1em;
-        color: #d9534f;
-        height: 0.5em;
-        margin-bottom: 1em;
-      }
-
-      .age-error {
-        font-size: 0.9rem;
-      }
-
-      .input-div div:nth-child(1) {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.5em;
-      }
-
-      .input,
-      .gender-option {
-        background-color: transparent;
-        border: none;
-      }
-
-      .input:focus,
-      .gender-option:focus {
-        background-color: transparent;
-        border: none;
-        outline: none;
-      }
-
-      .gender-option,
-      .input {
-        width: 100%;
-      }
-
-      #birthdate-input {
-        border: solid 1px;
-        padding: 0.3em;
-        border-radius: 5px;
-        border-color: gray;
-      }
-
-      .create-button {
-        padding: 1em 1.5em;
-
-        border: none;
-        border-radius: 5px;
-
-        color: white;
-        cursor: pointer;
-        background: linear-gradient(
-          90deg,
-          rgba(2, 0, 36, 1) 0%,
-          rgba(16, 16, 167, 1) 0%,
-          rgba(41, 52, 173, 1) 0%,
-          rgba(0, 212, 255, 1) 100%
-        );
-      }
-
-      .signup-login-div button {
-        background-color: #3f2b96;
-      }
-
-      .signup-login-button {
-        display: grid;
-        grid-template-columns: 20px 1fr;
-        padding: 1em 1.5em;
-
-        border: none;
-        border-radius: 5px;
-
-        color: white;
-        cursor: pointer;
-      }
-
-      #label {
-        margin-bottom: 10px;
-      }
-
-      .separator {
-        text-align: center;
-        margin: 20px 0; /* Adjust the margin as needed */
-      }
-
-      .separator span {
-        display: inline-block;
-        padding: 0px 30px;
-        border-top: 1px solid #ccc;
-        border-bottom: 1px solid #ccc;
-      }
-
-      a {
-        text-decoration: none;
-        color: white;
-      }
-
-      .password-status {
-        color: red;
-      }
-
-      .term-condi {
-        display: flex;
-        align-items: center;
-        justify-content: left;
-        flex-direction: row;
-        column-gap: 10px;
-        margin-left: 10em;
-      }
-
-      .term-condi p {
-        font-size: 0.9rem;
-      }
-
-      .hide {
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-        display: none;
-      }
-
-      * {
-        font-family: Arial, Helvetica, sans-serif;
-      }
-
-      .view-summary-maincontainer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 2em;
-      }
-
-      .view-summary-subdiv {
-        box-shadow: inset 5px 5px 0px #c3c3c3, inset -5px -5px 0px #000000;
-
-        width: 40em;
-        height: 38em;
-
-        border-radius: 10px;
-        padding: 2em;
-
-        line-height: 1.2rem;
-      }
-
-      .summary-div-separator {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom-style: solid;
-        border-bottom-width: 1px;
-        padding-bottom: 0.5em;
-        border-color: gray;
-        margin-bottom: 0.5em;
-      }
-
-      .content-summary-div {
-        font-weight: bold;
-      }
-
-      .exit-button {
-        margin-bottom: 2em;
-        display: flex;
-        justify-content: right;
-        color: red;
-        cursor: pointer;
-      }
-
-      .hide {
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-        display: none;
-      }
-
-      * {
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-      }
-
-      .title-login-div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 1.5em 0;
-        background-image: linear-gradient(to right, #141e30, #243b55);
-        border-top-left-radius: 40px;
-        border-top-right-radius: 40px;
-
-        color: white;
-      }
-
-      .login-main-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-
-        width: 30em;
-        height: 30em;
-        border: solid 1px;
-        border-radius: 5px;
-        border-top-right-radius: 40px;
-        border-top-left-radius: 40px;
-        border-color: #243b55;
-
-        box-shadow: -11px 11px 23px #c2c2c2, 11px -11px 23px #ffffff;
-      }
-
-      .login-form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 2em 4em;
-      }
-
-      .login-input {
-        width: 100%;
-      }
-
-      .input-div {
-        display: grid;
-        grid-template-columns: 50px 1fr;
-        align-items: center;
-        column-gap: 1em;
-        border-bottom: solid 1px;
-        border-color: gray;
-        padding-bottom: 0.5em;
-      }
-
-      .input {
-        background-color: transparent;
-        border: none;
-      }
-
-      .input:focus {
-        background-color: transparent;
-        border: none;
-        outline: none;
-      }
-
-      .input {
-        width: 100%;
-      }
-
-      .login-email-div {
-        margin-bottom: 20px;
-      }
-
-      .login-forgot-div {
-        display: flex;
-        justify-content: right;
-        font-size: 0.8rem;
-        margin-bottom: 25px;
-        color: rgb(84, 84, 230);
-      }
-
-      .login-forgot-div p {
-        cursor: pointer;
-      }
-
-      .login-button-div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 20px;
-      }
-
-      .login-button-div button {
-        padding: 1em 5em;
-        border: none;
-        border-radius: 10px;
-        background-color: #3f2b96;
-        color: white;
-        cursor: pointer;
-        transition: all 0.15s;
-      }
-
-      .login-button-div button:hover {
-        background-color: #6151a7;
-      }
-
-      .login-notmember-div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .login-notmember-div span {
-        cursor: pointer;
-        color: rgb(84, 84, 230);
-      }
-
-      .login-notmember-div span:hover,
-      .login-forgot-div p:hover {
-        text-decoration: underline;
-      }
-
-      * {
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-      }
-
-      .title-login-div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 1.5em 0;
-        background-image: linear-gradient(to right, #141e30, #243b55);
-        border-top-left-radius: 40px;
-        border-top-right-radius: 40px;
-
-        color: white;
-      }
-
-      .login-main-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-
-        width: 30em;
-        height: 30em;
-        border: solid 1px;
-        border-radius: 5px;
-        border-top-right-radius: 40px;
-        border-top-left-radius: 40px;
-        border-color: #243b55;
-
-        box-shadow: -11px 11px 23px #c2c2c2, 11px -11px 23px #ffffff;
-      }
-
-      .login-form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 2em 4em;
-      }
-
-      .login-input {
-        width: 100%;
-      }
-
-      .input-div {
-        display: grid;
-        grid-template-columns: 50px 1fr;
-        align-items: center;
-        column-gap: 1em;
-        border-bottom: solid 1px;
-        border-color: gray;
-        padding-bottom: 0.5em;
-      }
-
-      .input {
-        background-color: transparent;
-        border: none;
-      }
-
-      .input:focus {
-        background-color: transparent;
-        border: none;
-        outline: none;
-      }
-
-      .input {
-        width: 100%;
-      }
-
-      .login-email-div {
-        margin-bottom: 20px;
-      }
-
-      .login-forgot-div {
-        display: flex;
-        justify-content: right;
-        font-size: 0.8rem;
-        margin-bottom: 25px;
-        color: rgb(84, 84, 230);
-      }
-
-      .login-forgot-div p {
-        cursor: pointer;
-      }
-
-      .login-button-div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 20px;
-      }
-
-      .login-button-div button {
-        padding: 1em 5em;
-        border: none;
-        border-radius: 10px;
-        background-color: #3f2b96;
-        color: white;
-        cursor: pointer;
-        transition: all 0.15s;
-      }
-
-      .login-button-div button:hover {
-        background-color: #6151a7;
-      }
-
-      .login-notmember-div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .login-notmember-div span {
-        cursor: pointer;
-        color: rgb(84, 84, 230);
-      }
-
-      .login-notmember-div span:hover,
-      .login-forgot-div p:hover {
-        text-decoration: underline;
-      }
-
-      .success-create-acc {
-        position: absolute;
-        background-color: #313133;
-        color: white;
-
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 20em;
-        height: 10em;
-        border: solid 1px;
-        border-radius: 10px;
-        padding: 2.5em;
-
-        line-height: 1.2rem;
-      }
-
-      .success-create-acc p {
-        text-align: center;
-      }
-
-      .login-now-button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .success-create-acc button {
-        padding: 1em 3em;
-        border: none;
-        border-radius: 10px;
-        background-color: #3f2b96;
-        color: white;
-        cursor: pointer;
-        margin-top: 2.5em;
-        transition: all 0.15s;
-      }
-
-      .success-create-acc button:hover {
-        background-color: #6151a7;
-      }
-
-      * {
-        font-family: Arial, Helvetica, sans-serif;
-      }
-
-      .view-summary-maincontainer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 2em;
-      }
-
-      .view-summary-subdiv {
-        box-shadow: inset 5px 5px 0px #c3c3c3, inset -5px -5px 0px #000000;
-
-        width: 40em;
-        height: 38em;
-
-        border-radius: 10px;
-        padding: 2em;
-
-        line-height: 1.2rem;
-      }
-
-      .summary-div-separator {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom-style: solid;
-        border-bottom-width: 1px;
-        padding-bottom: 0.5em;
-        border-color: gray;
-        margin-bottom: 0.5em;
-      }
-
-      .content-summary-div {
-        font-weight: bold;
-      }
-
-      .exit-button {
-        margin-bottom: 2em;
-        display: flex;
-        justify-content: right;
-        color: red;
-        cursor: pointer;
-      }
-
-      .hide {
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-        display: none;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css">
   </head>
 
   <body>
@@ -756,16 +17,11 @@
         </div>
 
         <div class="main-subdiv">
+
           <div class="reset-view-btn-container">
-            <div>
-              <button onclick="viewSummary()" class="view-button" type="button">
-                View Summary of Information
-              </button>
-            </div>
-            <div>
               <button class="reset-button" type="reset">Reset All Input</button>
-            </div>
           </div>
+
           <div class="upper-section-div">
             <div class="signupform-mainsections-title">
               <p>
@@ -774,69 +30,123 @@
             </div>
 
             <div class="upper-section-subdiv">
-              <div class="name-div">
-                <div class="input-div">
-                  <div>
-                    <label for="first-name-input">
-                      <i class="fa-solid fa-user fa-lg"></i>
-                    </label>
-                  </div>
+
+                <div class="input-parts-div">
+
+                  <label for="first-name-input">
+                    <div class="label-div">
+                      <div>
+                        <i class="fa-solid fa-user fa-xs"></i>
+                      </div>
+  
+                      <div>
+                          First Name*
+                      </div>
+                    </div>
+                  </label>
+
 
                   <div>
                     <input
                       id="first-name-input"
-                      class="input"
+                      class="input name"
                       required
                       type="text"
-                      placeholder="First Name"
-                    />
+                   >
                   </div>
                 </div>
 
-                <div class="input-div">
-                  <div>
-                    <label for="last-name-input">
-                      <i class="fa-solid fa-user fa-lg"></i>
-                    </label>
-                  </div>
+                <div class="input-parts-div">
+                  <label for="last-name-input">
+                    <div class="label-div">
 
+                      <div>
+                        <i class="fa-solid fa-user fa-xs"></i>
+                      </div>
+  
+                      <div>
+                          Last Name*
+                      </div>
+                     
+                    </div>
+                  </label>
+                  
                   <div>
                     <input
                       id="last-name-input"
-                      class="input"
+                      class="input name"
                       required
                       type="text"
-                      placeholder="Last Name"
                     />
                   </div>
                 </div>
 
-                <div class="input-div">
-                  <div>
-                    <label for="middle-intial-input"
-                      ><i class="fa-solid fa-user fa-lg"></i
-                    ></label>
-                  </div>
+                <div class="input-parts-div middle-initial-div">
+
+                  <label for="middle-intial-input"
+                  >
+                  <div class="label-div">
+                    <div> 
+                      <i class="fa-solid fa-user fa-xs"></i>
+                    </div>
+
+                    <div>
+                      Middle Initial*
+                    </div>
+                    
+                  </div></label>
 
                   <div>
                     <input
                       id="middle-intial-input"
-                      class="input"
+                      class="input name"
                       required
                       type="text"
-                      placeholder="Middle Initial"
                     />
                   </div>
                 </div>
-              </div>
 
-              <div class="username-div">
-                <div class="input-div">
+                <div class="input-parts-div">
+
+                  <label for="nickname-input">
+                    <div class="label-div">
+
+                      <div>
+                        <i class="fa-solid fa-user fa-xs"></i>
+                      </div>
+  
+                      <div>
+                          Nickname
+                      </div>
+                     
+                    </div>
+                  </label>
+
                   <div>
-                    <label for="username-input"
-                      ><i class="fa-solid fa-key fa-lg"></i
-                    ></label>
+                    <input
+                      id="nickname-input"
+                      class="input name"
+                      type="text"
+                    />
                   </div>
+                </div>
+
+                <div class="input-parts-div">
+
+                  <label for="username-input"
+                  >                  
+                  <div class="label-div">
+
+                    <div>
+                      <i class="fa-solid fa-key fa-xs"></i>
+                    </div>
+
+                    <div>
+                      <label for="username-input"
+                      >Username*</label>
+                    </div>
+                    
+                  </div></label>
 
                   <div>
                     <input
@@ -844,35 +154,23 @@
                       class="input"
                       type="text"
                       required
-                      placeholder="Username"
                     />
                   </div>
                 </div>
 
-                <div class="input-div">
-                  <div>
-                    <label for="nickname-input"
-                      ><i class="fa-solid fa-face-smile fa-lg"></i
-                    ></label>
-                  </div>
+                <div class="input-parts-div">
 
-                  <div>
-                    <input
-                      id="nickname-input"
-                      class="input"
-                      type="text"
-                      placeholder="Nickname (optional)"
-                    />
-                  </div>
-                </div>
-              </div>
+                  <label for="emailaddress-input"
+                  >                  <div class="label-div">
 
-              <div class="email-div">
-                <div class="input-div">
-                  <div>
-                    <label for="emailaddress-input"
-                      ><i class="fa-solid fa-envelope fa-lg"></i
-                    ></label>
+                    <div>
+                      <i class="fa-solid fa-envelope fa-xs"></i>
+                    </div>
+
+                    <div>
+                      Email Address*
+                  </div></label>
+
                   </div>
 
                   <div>
@@ -881,19 +179,25 @@
                       class="input"
                       type="email"
                       required
-                      placeholder="Email Address"
+                      placeholder="qwertuiop@email.com"
                     />
                   </div>
                 </div>
-              </div>
 
-              <div class="password-div">
-                <div class="input-div">
-                  <div>
-                    <label for="password-input"
-                      ><i class="fa-solid fa-lock fa-lg"></i
-                    ></label>
-                  </div>
+                <div class="input-parts-div">
+
+                  <label for="password-input"
+                  >                  <div class="label-div">
+
+                    <div>
+                      <i class="fa-solid fa-lock fa-xs"></i>
+                    </div>
+
+                    <div>
+                      Password*
+                    </div>
+                    
+                  </div></label>
 
                   <div>
                     <input
@@ -902,17 +206,25 @@
                       type="password"
                       required
                       minlength="8"
-                      placeholder="Password"
                     />
                   </div>
                 </div>
 
-                <div class="input-div">
-                  <div>
-                    <label for="confirmpass-input"
-                      ><i class="fa-solid fa-check-to-slot fa-lg"></i
-                    ></label>
-                  </div>
+                <div class="input-parts-div">
+
+                  <label for="confirmpass-input"
+                      >
+                      <div class="label-div">
+    
+                        <div>
+                          <i class="fa-solid fa-lock fa-xs"></i>
+                        </div>
+    
+                        <div>
+                          Confirm Password*
+                        </div>
+                        
+                      </div></label>
 
                   <div>
                     <input
@@ -920,12 +232,13 @@
                       class="input confirm-password"
                       type="password"
                       required
-                      placeholder="Confirm Password"
                     />
                   </div>
                 </div>
-              </div>
-            </div>
+
+
+            </div> <!--End of Upper Section Div-->
+
           </div>
 
           <div class="lower-section-div">
@@ -934,158 +247,223 @@
             </div>
 
             <div class="lower-section-subdiv">
-              <div class="birthdate-div">
-                <div class="birthdate-input-div">
-                  <div><p id="birthdate-title">Birthdate</p></div>
+
+              <div class="input-parts-div">
+
+                <label for="gender-input"
+                >                  <div class="label-div">
 
                   <div>
-                    <input
-                      class="input"
-                      id="birthdate-input"
-                      required
-                      type="date"
-                      onchange="calculateAge()"
-                    />
-                  </div>
-                </div>
-
-                <div class="input-div">
-                  <div><p id="birthdate-title">Age</p></div>
-
-                  <div>
-                    <input readonly class="input input-age" />
-                  </div>
-                </div>
-
-                <div class="input-div">
-                  <div>
-                    <label for="birthplace-input"
-                      ><i class="fa-solid fa-cake-candles fa-lg"></i
-                    ></label>
+                    <i class="fa-solid fa-venus-mars fa-xs"></i>
                   </div>
 
                   <div>
-                    <input
-                      id="birthplace-input"
-                      class="input"
-                      required
-                      type="text"
-                      placeholder="Enter Birthplace"
-                    />
+                    Gender*
                   </div>
+                  
+                </div></i
+              ></label>
+
+                <div>
+                  <select id="gender-input" required class="gender-option">
+                    <option disabled selected value="" >
+                      Please choose your gender
+                    </option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Others</option>
+                  </select>
                 </div>
               </div>
 
-              <div class="age-error-div hide">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                <p class="age-error">Age must be 18 years old or above.</p>
+              <div class="input-parts-div">
+
+                <label for="civilstatus-input"
+                ><div class="label-div">
+
+                  <div>
+                    <i class="fa-solid fa-users fa-xs"></i>
+                  </div>
+
+                  <div>
+                    Civil Status*
+                  </div>
+                  
+                </div></label>
+
+                <div>
+                  <select
+                    id="civilstatus-input"
+                    required
+                    class="gender-option"
+                  >
+                    <option disabled selected value="">
+                      Please choose your civil status
+                    </option>
+                    <option>Single</option>
+                    <option>Married</option>
+                    <option>Widowed</option>
+                  </select>
+                </div>
               </div>
 
-              <div class="gender-civil-div">
-                <div class="gender-div">
-                  <div class="input-div">
-                    <div>
-                      <label for="gender-input"
-                        ><i class="fa-solid fa-venus-mars fa-lg"></i
-                      ></label>
-                    </div>
+              <div class="birthdayage-div">
+                <div class="birthday-div">
+                  <div class="input-parts-div">
+
+                    <label for="birthdate-input"
+                    >                    <div class="label-div">
+    
+                      <div>
+                        <i class="fa-solid fa-cake-candles fa-xs"></i>
+                      </div>
+    
+                      <div>
+                        Birthdate*
+                      </div>
+                      
+                    </div></label>
 
                     <div>
-                      <select id="gender-input" required class="gender-option">
-                        <option disabled selected value="">
-                          Please choose your gender
-                        </option>
-                        <option>Male</option>
-                        <option>Female</option>
-                        <option>Others</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="civil-div">
-                  <div class="input-div">
-                    <div>
-                      <label for="civilstatus-input"
-                        ><i class="fa-solid fa-users-line fa-lg"></i
-                      ></label>
-                    </div>
-
-                    <div>
-                      <select
-                        id="civilstatus-input"
+                      <input
+                        class="input"
+                        id="birthdate-input"
                         required
-                        class="gender-option"
-                      >
-                        <option disabled selected value="">
-                          Please choose your civil status
-                        </option>
-                        <option>Single</option>
-                        <option>Married</option>
-                        <option>Widowed</option>
-                      </select>
+                        type="date"
+                        onchange="calculateAge()"
+                      />
                     </div>
                   </div>
                 </div>
-              </div>
+  
+                <div class="ageresult-div">
 
-              <div class="phone-div">
-                <div class="input-div">
-                  <div>
-                    <label for="phonenumber-input"
-                      ><i class="fa-solid fa-phone fa-lg"></i
-                    ></label>
+                  <div class="input-parts-div">
+
+                    <div>
+                      <label for="age" class="age-title"
+                      >         
+                      <div class="label-div">
+                        Age*
+                      </div>           
+                          
+                      </label>
+                    </div>
+                    
+
+                    <div>
+                      <input readonly class="agedisplay input-age" id="age"/>
+                    </div>
                   </div>
 
-                  <div>
-                    <input
-                      id="phonenumber-input"
-                      class="input phonenumber-input"
-                      type="text"
-                      pattern="639\d{2}-\d{3}-\d{4}"
-                      placeholder="Phone Number (639XX-XXX-XXXX)"
-                    />
-                  </div>
-                </div>
-
-                <div class="input-div">
-                  <div>
-                    <label for="landline-input"
-                      ><i class="fa-solid fa-tty fa-lg"></i
-                    ></label>
-                  </div>
-
-                  <div>
-                    <input
-                      id="landline-input"
-                      class="input telephone-input"
-                      type="text"
-                      pattern="8\d{3}-\d{4}"
-                      placeholder="Landline (8XXX-XXXX)"
-                    />
-                  </div>
                 </div>
               </div>
 
-              <div class="address-div">
-                <div class="input-div">
+              <div class="input-parts-div">
+
+                <label for="address-input"
+                ><div class="label-div">
+
                   <div>
-                    <label for="address-input"
-                      ><i class="fa-solid fa-house fa-lg"></i
-                    ></label>
+                    <i class="fa-solid fa-house fa-xs"></i>
                   </div>
 
                   <div>
-                    <input
-                      id="address-input"
-                      class="input"
-                      required
-                      type="text"
-                      placeholder="Enter Address"
-                    />
+                    Address*
                   </div>
+                  
+                </div></i
+              ></label>
+              
+              <div>
+                <input
+                  id="address-input"
+                  class="input"
+                  required
+                  type="text"
+                />
+              </div>
+            </div>
+
+              <div class="input-parts-div">
+
+                <label for="birthplace-input">
+                  <div class="label-div">
+
+                    <div>
+                      <i class="fa-solid fa-place-of-worship fa-xs"></i>
+                    </div>
+
+                    <div>
+                      Birthplace*
+                    </div>
+                    
+                  </div>
+                </label>
+
+                <div>
+                  <input
+                    id="birthplace-input"
+                    class="input"
+                    required
+                    type="text"
+                  />
                 </div>
               </div>
+
+              <div class="input-parts-div">
+
+                <label for="phonenumber-input"
+                >                  <div class="label-div">
+
+                  <div>
+                    <i class="fa-solid fa-phone fa-xs"></i>
+                  </div>
+
+                  <div>
+                    Phone Number*
+                  </div>
+                  
+                </div></label>
+
+                <div>
+                  <input
+                    id="phonenumber-input"
+                    class="input phonenumber-input"
+                    type="number"
+                    pattern="639\d{2}-\d{3}-\d{4}"
+                    placeholder="(639XX-XXX-XXXX)"
+                  />
+                </div>
+              </div>
+
+              <div class="input-parts-div">
+
+                  <label for="landline-input"
+                  ><div class="label-div">
+
+                    <div>
+                      <i class="fa-solid fa-tty fa-xs"></i>
+                    </div>
+
+                    <div>
+                      Landline*
+                    </div>
+                    
+                  </div></i
+                ></label>
+
+                <div>
+                  <input
+                    id="landline-input"
+                    class="input telephone-input"
+                    type="number"
+                    pattern="8\d{3}-\d{4}"
+                    placeholder="(8XXX-XXXX)"
+                  />
+                </div>
+              </div>
+
               <br />
 
               <div class="signupform-mainsections-title">
@@ -1094,190 +472,257 @@
 
               <div class="parent-main-container">
                 <p><b>Father</b></p>
-                <div class="name-div">
-                  <div class="input-div">
-                    <div>
-                      <label for="Ffirst-name-input"
-                        ><i class="fa-solid fa-user fa-lg"></i
-                      ></label>
-                    </div>
 
+                <div class="parent-information-input">
+
+                  <div class="input-parts-div">
+
+                      <label for="Ffirst-name-input"
+                      ><div class="label-div">
+      
+                        <div>
+                          <i class="fa-solid fa-user fa-xs"></i>
+                        </div>
+      
+                        <div>
+                          First Name*
+                        </div>
+                        
+                      </div></i
+                    ></label>
+                    
                     <div>
                       <input
                         id="Ffirst-name-input"
-                        class="input"
+                        class="input name"
                         required
                         type="text"
-                        placeholder="First Name"
                       />
                     </div>
                   </div>
 
-                  <div class="input-div">
-                    <div>
-                      <label for="Flast-name-input"
-                        ><i class="fa-solid fa-user fa-lg"></i
-                      ></label>
-                    </div>
+                <div class="input-parts-div">
+
+                    <label for="Flast-name-input"
+                    ><div class="label-div">
+    
+                      <div>
+                        <i class="fa-solid fa-user fa-xs"></i>
+                      </div>
+    
+                      <div>
+                        Last Name*
+                      </div>
+                      
+                    </div></label>
 
                     <div>
                       <input
                         id="Flast-name-input"
-                        class="input"
+                        class="input name"
                         required
                         type="text"
-                        placeholder="Last Name"
                       />
                     </div>
-                  </div>
-
-                  <div class="input-div">
-                    <div>
-                      <label for="Fmiddle-intial-input">
-                        <i class="fa-solid fa-user fa-lg"></i>
-                      </label>
-                    </div>
-
-                    <div>
-                      <input
-                        id="Fmiddle-intial-input"
-                        class="input"
-                        required
-                        type="text"
-                        placeholder="Middle Initial"
-                      />
-                    </div>
-                  </div>
                 </div>
+                
+                <div class="input-parts-div">
+
+                  <label for="Fmiddle-intial-input">
+                    <div class="label-div">
+  
+                      <div>
+                        <i class="fa-solid fa-user fa-xs"></i>
+                      </div>
+    
+                      <div>
+                        Middle Initial*
+                      </div>
+                      
+                    </div>
+                  </label>
+
+                  <div class="middle-initial-div">
+                    <input
+                      id="Fmiddle-intial-input"
+                      class="input name"
+                      required
+                      type="text"
+                    />
+                  </div>
+              </div>
+
+              <div class="input-parts-div">
+
+                <label for="Foccupation"
+                >                  <div class="label-div">
+
+                  <div>
+                    <i class="fa-solid fa-user-tie fa-xs"></i>
+                  </div>
+
+                  <div>
+                    Occupation*
+                  </div>
+                  
+                </div></label>
 
                 <div class="occupation-div">
-                  <div class="input-div">
-                    <div>
-                      <label for="Foccupation"
-                        ><i class="fa-solid fa-user-tie fa-lg"></i
-                      ></label>
-                    </div>
+                  <input
+                    id="Foccupation"
+                    class="input name"
+                    required
+                    type="text"
+                  />
+                </div>
+            </div>
 
+          </div> <!--End of Parents Main Container-->
+
+              <br />
+
+              <p><b>Mother</b></p>
+
+              <div class="parent-main-container">
+                <div class="input-parts-div">
+
+                  <label for="Mfirst-name-input"
+                  ><div class="label-div">
+  
                     <div>
-                      <input
-                        id="Foccupation"
-                        class="input"
-                        required
-                        type="text"
-                        placeholder="Occupation"
-                      />
+                      <i class="fa-solid fa-user fa-xs"></i>
                     </div>
+  
+                    <div>
+                      First Name*
+                    </div>
+                    
+                  </div></label>
+
+                  <div>
+                    <input
+                      id="Mfirst-name-input"
+                      class="input name"
+                      required
+                      type="text"
+                    />
                   </div>
                 </div>
 
-                <br />
+                <div class="input-parts-div">
 
-                <p><b>Mother</b></p>
-                <div class="name-div">
-                  <div class="input-div">
+                  <label for="Mlast-name-input"
+                  ><div class="label-div">
+  
                     <div>
-                      <label for="Mfirst-name-input"
-                        ><i class="fa-solid fa-user fa-lg"></i
-                      ></label>
+                      <i class="fa-solid fa-user fa-xs"></i>
                     </div>
+  
+                    <div>
+                     Last Name*
+                    </div>
+                    
+                  </div></label>
 
-                    <div>
-                      <input
-                        id="Mfirst-name-input"
-                        class="input"
-                        required
-                        type="text"
-                        placeholder="First Name"
-                      />
-                    </div>
-                  </div>
 
-                  <div class="input-div">
-                    <div>
-                      <label for="Mlast-name-input"
-                        ><i class="fa-solid fa-user fa-lg"></i
-                      ></label>
-                    </div>
-
-                    <div>
-                      <input
-                        id="Mlast-name-input"
-                        class="input"
-                        required
-                        type="text"
-                        placeholder="Last Name"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="input-div">
-                    <div>
-                      <label for="Mmiddle-intial-input"
-                        ><i class="fa-solid fa-user fa-lg"></i
-                      ></label>
-                    </div>
-
-                    <div>
-                      <input
-                        id="Mmiddle-intial-input"
-                        class="input"
-                        required
-                        type="text"
-                        placeholder="Middle Initial"
-                      />
-                    </div>
+                  <div>
+                    <input
+                      id="Mlast-name-input"
+                      class="input name"
+                      required
+                      type="text"
+                    />
                   </div>
                 </div>
 
-                <div class="occupation-div">
-                  <div class="input-div">
-                    <div>
-                      <label for="Moccupation"
-                        ><i class="fa-solid fa-user-tie fa-lg"></i
-                      ></label>
-                    </div>
+                <div class="input-parts-div">
 
+                  <label for="Mmiddle-intial-input"
+                  ><div class="label-div">
+  
                     <div>
-                      <input
-                        id="Moccupation"
-                        class="input"
-                        required
-                        type="text"
-                        placeholder="Occupation"
-                      />
+                      <i class="fa-solid fa-user fa-xs"></i>
                     </div>
+  
+                    <div>
+                     Middle Initial*
+                    </div>
+                    
+                  </div></label>
+
+                  <div class="middle-initial-div">
+                    <input
+                      id="Mmiddle-intial-input"
+                      class="input name"
+                      required
+                      type="text"
+                    />
                   </div>
                 </div>
+
+                <div class="input-parts-div">
+
+                  <label for="Moccupation"
+                  ><div class="label-div">
+  
+                    <div>
+                      <i class="fa-solid fa-user-tie fa-xs"></i>
+                    </div>
+  
+                    <div>
+                     Occupation*
+                    </div>
+                    
+                  </div></label>
+
+                  <div class="occupation-div">
+                    <input
+                      id="Mmiddle-intial-input"
+                      class="input"
+                      required
+                      type="text"
+                    />
+                  </div>
+                </div>
+              </div>
+
               </div>
             </div>
           </div>
         </div>
 
-        <div class="term-condi">
-          <div>
-            <input required type="checkbox" />
+        <div class="end-div">
+        </div>
+
+        <div class="term-condi-maindiv">
+          <div class="term-condi">
+            <div>
+              <input required type="checkbox" class="checkboxes" />
+            </div>
+            <div>
+              <p>
+                By checking this box, you confirm that you are
+                <u><b>18 years old or older</b></u
+                >.
+              </p>
+            </div>
           </div>
-          <div>
-            <p>
-              By checking this box, you confirm that you are
-              <u><b>18 years old or older</b></u
-              >.
-            </p>
+  
+          <div class="term-condi">
+            <div>
+              <input required type="checkbox" class="checkboxes"/>
+            </div>
+            <div>
+              <p>
+                By creating your account, you confirm your acceptance of the
+                <u><b>Terms and Conditions</b></u
+                >.
+              </p>
+            </div>
           </div>
         </div>
 
-        <div class="term-condi">
-          <div>
-            <input required type="checkbox" />
-          </div>
-          <div>
-            <p>
-              By creating your account, you confirm your acceptance of the
-              <u><b>Terms and Conditions</b></u
-              >.
-            </p>
-          </div>
-        </div>
+        
 
         <div class="create-div">
           <button
@@ -1316,13 +761,24 @@
       </div>
 
       <form class="login-form">
-        <div class="login-email-div">
-          <div class="input-div">
-            <div>
-              <label for="email-user-login">
-                <i class="fa-solid fa-envelope fa-lg"></i>
-              </label>
-            </div>
+
+        <div class="login-user-pass">
+          <div class="input-parts-div">
+
+            <label for="email-user-login">
+              <div class="label-div">
+
+                <div>
+                  <i class="fa-solid fa-user fa-xs"></i>
+                </div>
+  
+                <div>
+                 Username/Email
+                </div>
+                
+              </div>
+            </label>
+
 
             <div>
               <input
@@ -1330,19 +786,25 @@
                 class="input"
                 required
                 type="text"
-                placeholder="Email Address/Username"
               />
             </div>
           </div>
-        </div>
 
-        <div class="login-pass-div">
-          <div class="input-div">
-            <div>
-              <label for="pass-login">
-                <i class="fa-solid fa-lock fa-lg"></i>
-              </label>
-            </div>
+          <div class="input-parts-div">
+
+            <label for="pass-login">
+              <div class="label-div">
+
+                <div>
+                  <i class="fa-solid fa-lock fa-xs"></i>
+                </div>
+  
+                <div>
+                 Password
+                </div>
+                
+              </div>
+            </label>
 
             <div>
               <input
@@ -1350,12 +812,11 @@
                 class="input"
                 required
                 type="password"
-                placeholder="Password"
               />
             </div>
           </div>
         </div>
-
+        
         <div class="login-forgot-div"><p>Forgot Username/Password?</p></div>
 
         <div class="login-button-div">
@@ -1371,96 +832,6 @@
       </form>
     </div>
 
-    <div class="view-summary-maincontainer hide">
-      <div class="view-summary-subdiv">
-        <div onclick="exitSummary()" class="exit-button">
-          <i class="fa-solid fa-circle-xmark fa-xl"></i>
-        </div>
-
-        <div class="information-summary">
-          <div class="summary-div-separator">
-            <div>Full Name</div>
-            <div class="full-name-summary content-summary-div"></div>
-          </div>
-
-          <div class="summary-div-separator">
-            <div>Username</div>
-            <div class="username-summary content-summary-div"></div>
-          </div>
-
-          <div class="summary-div-separator">
-            <div>Nickname</div>
-            <div class="nickname-summary content-summary-div"></div>
-          </div>
-
-          <div class="summary-div-separator">
-            <div>Email Address</div>
-            <div class="email-summary content-summary-div"></div>
-          </div>
-
-          <div class="summary-div-separator">
-            <div>Birthdate</div>
-            <div class="birthdate-summary content-summary-div"></div>
-          </div>
-
-          <div class="summary-div-separator">
-            <div>Age</div>
-            <div class="age-summary content-summary-div"></div>
-          </div>
-
-          <div class="summary-div-separator">
-            <div>Birthplace</div>
-            <div class="birthplace-summary content-summary-div"></div>
-          </div>
-
-          <div class="summary-div-separator">
-            <div>Gender</div>
-            <div class="gender-summary content-summary-div"></div>
-          </div>
-
-          <div class="summary-div-separator">
-            <div>Civil Status</div>
-            <div class="civil-summary content-summary-div"></div>
-          </div>
-
-          <div class="summary-div-separator">
-            <div>Phone Number</div>
-            <div class="phonenum-summary content-summary-div"></div>
-          </div>
-
-          <div class="summary-div-separator">
-            <div>Landline</div>
-            <div class="landline-summary content-summary-div"></div>
-          </div>
-
-          <div class="summary-div-separator">
-            <div>Address</div>
-            <div class="address-summary content-summary-div"></div>
-          </div>
-
-          <div class="summary-div-separator">
-            <div>Father's Full Name</div>
-            <div class="father-full-name-summary content-summary-div"></div>
-          </div>
-
-          <div class="summary-div-separator">
-            <div>Father's Occupation</div>
-            <div class="foccupation-summary content-summary-div"></div>
-          </div>
-
-          <div class="summary-div-separator">
-            <div>Mother's Full Name</div>
-            <div class="mother-full-name-summary content-summary-div"></div>
-          </div>
-
-          <div class="summary-div-separator">
-            <div>Mother's Occupation</div>
-            <div class="moccupation-summary content-summary-div"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="success-create-acc hide">
       <p>Account successfully created.</p>
       <p>You can now use your credentials to log in.</p>
@@ -1469,304 +840,7 @@
       </div>
     </div>
 
-    <script>
-      const createbutton = document.querySelector(".create-button");
-      const ageError = document.querySelector(".age-error-div");
-      const password = document.querySelector(".password");
-      const confirmpassword = document.querySelector(".confirm-password");
-      const username = document.querySelector("#username-input");
-      const emailAddress = document.querySelector("#emailaddress-input");
-
-      const phonenumber = document.querySelector(".phonenumber-input");
-      const telephone = document.querySelector(".telephone-input");
-
-      const accountdetails = [];
-
-      const ageDisplay = document.querySelector(".input-age");
-
-      //bday
-      let age;
-      let birthDateInput;
-
-      //To set the Maximum set of date
-      const bdayInput = document.getElementById("birthdate-input");
-      let maxYear = new Date().getFullYear() - 18;
-      let maxDay = new Date().getDate();
-      let maxMonth = new Date().getMonth() + 1;
-      let maxBdayInput = `${maxYear}-${maxMonth
-        .toString()
-        .padStart(2, "0")}-${maxDay.toString().padStart(2, "0")}`;
-      bdayInput.max = maxBdayInput;
-
-      // For Birthdate Min and Max
-
-      function calculateAge() {
-        birthDateInput = document.getElementById("birthdate-input").value;
-        let bDay = new Date(birthDateInput);
-        let currentDate = new Date();
-
-        // Calculate the difference in years
-        age = currentDate.getFullYear() - bDay.getFullYear();
-
-        // Check if the current date's month and day are before the birthdate's month and day
-        if (
-          currentDate.getMonth() < bDay.getMonth() ||
-          (currentDate.getMonth() === bDay.getMonth() &&
-            currentDate.getDate() < bDay.getDate())
-        ) {
-          age--;
-        }
-
-        ageDisplay.value = age || null;
-      }
-
-      //For the Login and Signup Popup
-      const loginForm = document.querySelector(".login-main-container");
-      const loginFormPage = document.querySelector(".login-form");
-      const signupForm = document.querySelector(".main-container");
-      const signupFormPage = document.querySelector(".signup-form-page");
-      const viewSummaryContainer = document.querySelector(
-        ".view-summary-maincontainer"
-      );
-      const successCreate = document.querySelector(".success-create-acc");
-
-      const createAccButton = document.querySelector(".create-button");
-
-      function createAcc(event) {
-        if (
-          password.value !== confirmpassword.value &&
-          password.value !== "" &&
-          confirmpassword.value !== ""
-        ) {
-          confirmpassword.setCustomValidity(
-            "Passwords are not the same. Please check and try again."
-          );
-          return;
-        } else {
-          confirmpassword.setCustomValidity("");
-        }
-        if (phonenumber.value == "" && telephone.value == "") {
-          phonenumber.setCustomValidity("Enter at least one contact number.");
-          telephone.setCustomValidity("Enter at least one contact number.");
-          return;
-        } else {
-          phonenumber.setCustomValidity("");
-          telephone.setCustomValidity("");
-        }
-
-        if (signupFormPage.checkValidity()) {
-          event.preventDefault();
-          accountdetails.push({
-            username: username.value,
-            emailAddress: emailAddress.value,
-            password: password.value,
-          });
-          signupFormPage.reset();
-          age = undefined;
-          birthDateInput = undefined;
-          signupForm.classList.add("hide");
-          loginForm.classList.add("hide");
-          viewSummaryContainer.classList.add("hide");
-          successCreate.classList.remove("hide");
-        }
-      }
-
-      function signUp() {
-        loginForm.classList.add("hide");
-        signupForm.classList.remove("hide");
-        viewSummaryContainer.classList.add("hide");
-        document.title = "Account Sign In";
-      }
-
-      function logIn() {
-        loginForm.classList.remove("hide");
-        signupForm.classList.add("hide");
-        viewSummaryContainer.classList.add("hide");
-      }
-
-      function loginNow() {
-        signupForm.classList.add("hide");
-        loginForm.classList.remove("hide");
-        viewSummaryContainer.classList.add("hide");
-        successCreate.classList.add("hide");
-      }
-
-      function verifyLogin(event) {
-        if (loginFormPage.checkValidity()) {
-          event.preventDefault();
-          const emailuserLogin =
-            document.querySelector("#email-user-login").value;
-          const passLogin = document.querySelector("#pass-login").value;
-
-          if (!accountdetails.length) {
-            alert("Incorrect Credentials. Please try again");
-            loginFormPage.reset();
-            return;
-          }
-          for (let i = 0; i < accountdetails.length; i++) {
-            if (
-              emailuserLogin == accountdetails[i].username ||
-              emailuserLogin == accountdetails[i].emailAddress
-            ) {
-              if (passLogin == accountdetails[i].password) {
-                alert("Successful Log In. Thank you.");
-                loginFormPage.reset();
-              } else {
-                alert("Incorrect Password. Please try again.");
-                loginFormPage.reset();
-              }
-            } else if (
-              emailuserLogin !== accountdetails[i].username &&
-              emailuserLogin !== accountdetails[i].emailAddress
-            ) {
-              alert("Incorrect Credentials. Please try again");
-              loginFormPage.reset();
-
-              return;
-            }
-          }
-        }
-      }
-
-      //For View Summary
-      function viewSummary() {
-        document.title = "Account Summary";
-        // Document Query Selector of Each Input in Registration Form
-
-        //For Full Name
-        const firstName = document.querySelector("#first-name-input").value;
-        const lastName = document.querySelector("#last-name-input").value;
-        const middleInitial = document.querySelector(
-          "#middle-intial-input"
-        ).value;
-        const fullNameSummaryDiv = document.querySelector(".full-name-summary");
-
-        let fullname;
-        if (!firstName || !lastName || !middleInitial) {
-          fullname = "";
-        } else {
-          fullname = `${firstName} ${middleInitial}. ${lastName}`;
-        }
-
-        //For Username
-        const usernameSummaryDiv = document.querySelector(".username-summary");
-
-        //For nickname
-        const nickname = document.querySelector("#nickname-input").value;
-        const nicknameSummaryDiv = document.querySelector(".nickname-summary");
-
-        //For Email
-        const emailSummaryDiv = document.querySelector(".email-summary");
-
-        //For Birthdate
-        const birthdateSummaryDiv =
-          document.querySelector(".birthdate-summary");
-
-        //For Age
-        const ageSummaryDiv = document.querySelector(".age-summary");
-        let agetemp;
-        if (age) {
-          agetemp = `${age} years old`;
-        }
-
-        //For Birthplace
-        const birthplace = document.querySelector("#birthplace-input").value;
-        const birthplaceSummaryDiv = document.querySelector(
-          ".birthplace-summary"
-        );
-
-        //For Gender
-        const gender = document.querySelector("#gender-input").value;
-        const genderSummaryDiv = document.querySelector(".gender-summary");
-
-        //For Civil Status
-        const civilStatus = document.querySelector("#civilstatus-input").value;
-        const civilSummaryDiv = document.querySelector(".civil-summary");
-
-        //For Phone Number
-        const phonenumber = document.querySelector("#phonenumber-input").value;
-        const phonenumSummaryDiv = document.querySelector(".phonenum-summary");
-
-        //For Landline
-        const landline = document.querySelector("#landline-input").value;
-        const landlineSummaryDiv = document.querySelector(".landline-summary");
-
-        //For Address
-        const address = document.querySelector("#address-input").value;
-        const addressSummaryDiv = document.querySelector(".address-summary");
-
-        //For Father's Information
-        const FfirstName = document.querySelector("#Ffirst-name-input").value;
-        const FlastName = document.querySelector("#Flast-name-input").value;
-        const FmiddleInitial = document.querySelector(
-          "#Fmiddle-intial-input"
-        ).value;
-        const FFullnameSummaryDiv = document.querySelector(
-          ".father-full-name-summary"
-        );
-
-        let Ffullname;
-        if (!FfirstName || !FlastName || !FmiddleInitial) {
-          Ffullname = "";
-        } else {
-          Ffullname = `${FfirstName} ${FmiddleInitial}. ${FlastName}`;
-        }
-
-        const Foccupation = document.querySelector("#Foccupation").value;
-        const FoccupationSummaryDiv = document.querySelector(
-          ".foccupation-summary "
-        );
-
-        const MfirstName = document.querySelector("#Mfirst-name-input").value;
-        const MlastName = document.querySelector("#Mlast-name-input").value;
-        const MmiddleInitial = document.querySelector(
-          "#Mmiddle-intial-input"
-        ).value;
-
-        const MFullnameSummaryDiv = document.querySelector(
-          ".mother-full-name-summary"
-        );
-        let Mfullname;
-        if (!MfirstName || !MlastName || !MmiddleInitial) {
-          Mfullname = "";
-        } else {
-          Mfullname = `${MfirstName} ${MmiddleInitial}. ${MlastName}`;
-        }
-
-        const Moccupation = document.querySelector("#Moccupation").value;
-        const MoccupationSummaryDiv = document.querySelector(
-          ".moccupation-summary"
-        );
-
-        loginForm.classList.add("hide");
-        signupForm.classList.add("hide");
-        viewSummaryContainer.classList.remove("hide");
-
-        fullNameSummaryDiv.textContent = `${fullname || "N/A"}`;
-        usernameSummaryDiv.textContent = `${username.value || "N/A"}`;
-        nicknameSummaryDiv.textContent = `${nickname || "N/A"}`;
-        emailSummaryDiv.textContent = `${emailAddress.value || "N/A"}`;
-        birthdateSummaryDiv.textContent = `${birthDateInput || "N/A"}`;
-        ageSummaryDiv.textContent = `${agetemp || "N/A"}`;
-        birthplaceSummaryDiv.textContent = `${birthplace || "N/A"}`;
-        genderSummaryDiv.textContent = `${gender || "N/A"}`;
-        civilSummaryDiv.textContent = `${civilStatus || "N/A"}`;
-        phonenumSummaryDiv.textContent = `${phonenumber || "N/A"}`;
-        landlineSummaryDiv.textContent = `${landline || "N/A"}`;
-        addressSummaryDiv.textContent = `${address || "N/A"}`;
-        FFullnameSummaryDiv.textContent = `${Ffullname || "N/A"}`;
-        FoccupationSummaryDiv.textContent = `${Foccupation || "N/A"}`;
-        MFullnameSummaryDiv.textContent = `${Mfullname || "N/A"}`;
-        MoccupationSummaryDiv.textContent = `${Moccupation || "N/A"}`;
-      }
-
-      function exitSummary() {
-        document.title = "Account Sign In";
-        loginForm.classList.add("hide");
-        signupForm.classList.remove("hide");
-        viewSummaryContainer.classList.add("hide");
-      }
-    </script>
+   <script src="script.js"></script>
     <script
       src="https://kit.fontawesome.com/ea3bfd0f41.js"
       crossorigin="anonymous"
